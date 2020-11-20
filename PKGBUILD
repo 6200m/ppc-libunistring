@@ -1,9 +1,9 @@
 # Maintainer:  Spotlight <spotlight@joscomputing.space>
 
 actualname=libunistring
-pkgname=wii-$actualname
+pkgname=ppc-$actualname
 pkgver=0.9.10
-pkgrel=3
+pkgrel=4
 pkgdesc='Library for manipulating Unicode strings and C strings'
 url='https://www.gnu.org/software/libunistring/'
 arch=(any)
@@ -16,7 +16,7 @@ b2sums=('25d162d9d510cc35ad4209acceb9b06bcc0553b8ce56e94f8df12c4df64d91abfc4a9e1
         'SKIP')
 
 build() {
-  source ${DEVKITPRO}/wiivars.sh
+  source ${DEVKITPRO}/ppcvars.sh
 
   cd $actualname-$pkgver
   ./configure --prefix="${PORTLIBS_PREFIX}" --host=powerpc-eabi \
@@ -25,7 +25,7 @@ build() {
 }
 
 package() {
-  source ${DEVKITPRO}/wiivars.sh
+  source ${DEVKITPRO}/ppcvars.sh
 
   make -C $actualname-$pkgver DESTDIR="$pkgdir" install
 }
